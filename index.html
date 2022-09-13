@@ -8,10 +8,39 @@
 </head>
 <body>
     
-    <h1 style="color:red" onclick="headingFunction(event)"> Heading </h1>
+    <h1 id="heading" style="color:red" onclick="headingFunction(event)"> Heading </h1> // html element node
     <button type="button" onclick="clickfunction()" ondblclick="dblclickfunction()"> click </button>
+    <p id="para"> <b>  Paragraph 1  </b></p>
+    <div> </div>
+
+    <!-- form elements => input , select, radio, checkbox, submit, form => onchange, onsubmit -->
+
+    <input type="text" id="username" placeholder="enter ur username" />
+
+    <form onsubmit="submitFunction(event)">
+        <input type="text" name="fname" placeholder="fname" onchange="changeFirstFunction(event)"/>
+        <input type="text" name="lname" placeholder="lname" onchange="changeFirstFunction(event)"/>
+        <input type="text" name="email" placeholder="email" onchange="changeFirstFunction(event)"/>
+        <input type="text" name="username" placeholder="username" onchange="changeFirstFunction(event)"/>
+
+        <button type="submit"> submit </button>
+    </form>
 
     <script>
+        var getAllValues={};
+        function changeFirstFunction(event){
+            console.log(event, event.target.value)
+            let name = event.target.name;
+            console.log(name)
+            
+            getAllValues[name] = event.target.value
+            
+        }
+        function submitFunction(event){
+            event.preventDefault(); // stop the default behaviour of event
+            console.log('form submited', event);
+            console.log(getAllValues)
+        }
         function headingFunction(event){
             console.log(event); // event is an object carrying all information related to the current element 
             console.log(event.target.value)
@@ -22,6 +51,26 @@
 
         function dblclickfunction(){
             console.log('dbl clicked')
+        }
+
+        // get the html element by using DOM:
+        console.log(document.getElementById('para'))
+
+        document.getElementById('para').onclick = paraclickFunction;
+
+        function paraclickFunction(event){
+            console.log('para clicked', event);
+
+            event.target.innerText = '<span> changed para text </span>'
+            // event.target.innerHTML = '<span> changed para text </span>'
+            console.log(event.target.innerHTML, event.target.innerText)
+        }
+
+        // get the input element:
+        document.getElementById('username').onchange = getValueFunction;
+
+        function getValueFunction(event){
+            console.log('value changed', event, event.target.value)
         }
     </script>
 </body>
