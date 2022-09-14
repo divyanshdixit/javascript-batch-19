@@ -32,3 +32,16 @@ function validatePIN (pin) {
 
 
     caclulator(2,1)
+
+    // calc:
+
+    var calculator = {
+      x:0,
+      y:0,
+      add: function(){
+          console.log(this.x + this.y)
+      }
+  }
+  
+  console.log(calculator.add());
+  calculator.x = 10;
