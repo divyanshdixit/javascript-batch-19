@@ -121,3 +121,10 @@ var calculator = {
 
 console.log(calculator.add());
 calculator.x = 10;
+
+
+var p = {
+    name : 'ggg'
+}
+
+console.log(p.name)
