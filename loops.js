@@ -54,10 +54,22 @@ console.log(val);
 
 // do-while 
 
-// while 
-var x =;
+// while : used where no of times is not clear 
 
-while(x>10){
+var x = 12; // init
+
+while(x>10){ // true condition
     console.log('true')
-    x++;
+    x--; // decrement
 }
+var x = 1;
+var count = 0;
+// 0 => false, 1=> true
+while(x){
+    count = count + 1;
+    console.log('something')
+    if(count == 5){
+        x = 0;
+    }
+}
+

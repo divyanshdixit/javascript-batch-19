@@ -32,7 +32,7 @@ var y=20;
 }
 
 console.log(some()) // 30
-console.log(y) // 20
+// console.log(y) // 20
 y = 30;
 
 console.log(some()) // 40
@@ -49,3 +49,12 @@ function first(){
 }
 
 first();
+
+
+function sec(cb){
+    var t= 10;
+    cb();
+}
+
+// sec( function(){} )
+sec(function(){console.log(t)})
